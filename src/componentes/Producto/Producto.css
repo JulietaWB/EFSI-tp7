@@ -1,0 +1,32 @@
+.producto-detalle h1 {
+    font-size: 2rem;
+}
+
+.producto-detalle .carousel {
+    border-radius: 12px;
+}
+
+.producto-detalle p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.producto-detalle .btn-success {
+    font-size: 1.1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+.producto-detalle .btn-success:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .producto-detalle h1 {
+        font-size: 1.5rem;
+    }
+
+    .producto-detalle .btn-success {
+        width: 100%;
+    }
+}

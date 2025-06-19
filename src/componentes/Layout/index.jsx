@@ -1,63 +1,63 @@
 import { Link, Outlet } from "react-router-dom";
 import './layout.css';
+import { marcas } from '../../data';
 
 const Layout = () => {
-    
-    //HARDCODEO
-    const marcas = [
-        { id: 1, nombre: 'Apple' },
-        { id: 2, nombre: 'Samsung' },
-        { id: 3, nombre: 'Xiaomi' },
-        { id: 4, nombre: 'Motorola' }
-      ];
-
-    return (<>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" >
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <Link to="/" class="nav-link active">Home  </Link>
-                    </li>
-                    <li class="nav-item">
-                        <Link to="/quienes-somos" class="nav-link" >Quienes Somos  </Link>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Nuestros productos
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <Link to="/productos" class="dropdown-item">Todos los productos  </Link>
+    return (
+        <>
+            <nav className="navbar navbar-expand-lg custom-navbar fixed-top">
+                <div className="container">
+                    <Link to="/" className="navbar-brand fw-bold text-white">📱 ReventaCell</Link>  
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                    <div className="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul className="navbar-nav ms-auto">
+                            <li className="nav-item">
+                                <Link to="/" className="nav-link">Home</Link>
                             </li>
-                            <li>
-                                { marcas.map(p => <Link to={`/productos/${p.id}/${p.nombre}`} class="dropdown-item">   {p.nombre} </Link> ) }
+                            <li className="nav-item">
+                                <Link to="/quienes-somos" className="nav-link">Quiénes Somos</Link>
+                            </li>
+                            <li className="nav-item dropdown ">
+                                <a className="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Nuestros productos
+                                </a>
+                                <ul className="dropdown-menu">
+                                    <li>
+                                        <Link to="/productos" className="dropdown-item">Todos los productos</Link>
+                                    </li>
+                                    {marcas.map(p => (
+                                        <li key={p.id}>
+                                            <Link to={`/productos/${p.id}/${p.nombre}`} className="dropdown-item">{p.nombre}</Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </li>
+                            <li className="nav-item">
+                                <Link to="/contacto" className="nav-link">Contacto</Link>
                             </li>
                         </ul>
-                    </li>
-                    <li class="nav-item">
-                        <Link to="/contacto" class="nav-link" >Contacto  </Link>
-                    </li>
-                </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
 
-        <Outlet></Outlet>
+            <main className="contenido-principal">
+                <Outlet />
+            </main>
 
-        <footer>
-            <div className="container text-center">
-                <p>&copy; {new Date().getFullYear()} Reventa de Celulares. Todos los derechos reservados.</p>
-                <div>
-                    <Link to="/" className="text-white mx-2 text-decoration-none">Home</Link>
-                    <Link to="/quienes-somos" className="text-white mx-2 text-decoration-none">Quiénes Somos</Link>
+            <footer className="bg-dark text-white py-4 mt-5">
+                <div className="text-center">
+                    <p className="mb-2">&copy; {new Date().getFullYear()} Reventa de Celulares. Todos los derechos reservados.</p>
+                    <div>
+                        <Link to="/" className="text-white mx-2 text-decoration-none fw-bold">Home</Link>
+                        <Link to="/quienes-somos" className="text-white mx-2 text-decoration-none fw-bold">Quiénes Somos</Link>
+                        <Link to="/contacto" className="text-white mx-2 text-decoration-none fw-bold">Contacto</Link>
+                    </div>
                 </div>
-            </div>
-        </footer>
-    </>);
-}
+            </footer>
+        </>
+    );
+};
 
 export default Layout;

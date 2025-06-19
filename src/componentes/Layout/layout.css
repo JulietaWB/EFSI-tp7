@@ -1,0 +1,46 @@
+/* Espacio debajo del navbar fijo */
+.contenido-principal {
+    padding-top: 80px; /* Altura del navbar + margen */
+    min-height: calc(100vh - 160px); /* Deja espacio para el footer */
+}
+
+/* Navbar */
+.navbar-brand {
+    font-size: 1.5rem;
+}
+
+.custom-navbar {
+    background-color: #212529; /* por ejemplo, un gris oscuro */
+}
+
+.custom-navbar .nav-link {
+    color: #ffffff;
+}
+
+.custom-navbar .nav-link:hover {
+    color: #ffffff;
+}
+
+.nav-link {
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover,
+.dropdown-item:hover {
+    color: #fff;
+    background-color: #313131;
+}
+
+.navbar-brand {
+    color: #fff;
+}
+
+/* Footer */
+footer a:hover {
+    text-decoration: underline;
+}
+
+#root {
+    width:100%;
+}
